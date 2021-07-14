@@ -1,0 +1,55 @@
+:root {
+   --main-blue: #003068;
+   --sky-blue: #CFE5FF;
+   --dark-grey: #3A3A3A;
+   --danger: #E74C3C;
+}
+
+*, ::before, ::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 10px;
+}
+
+input, button {
+   border: none;
+   font: inherit;
+}
+
+input {
+   outline: none;
+   min-width: 0;
+}
+
+button:not(:disabled) {
+   cursor: pointer;
+}
+
+input[type="password"]::-ms-reveal {
+   display: none;
+}
+
+body {
+   color: white;
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.6rem;
+}
+
+button, .a-btn {
+   text-decoration: none;
+   text-transform: uppercase;
+   text-align: center;
+   color: white;
+   background: black;
+   padding: .65em 2em;
+   border-radius: 1.5rem;
+   transition: opacity .3s;
+}
+
+button:disabled {
+   opacity: .5;
+}

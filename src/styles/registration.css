@@ -1,0 +1,183 @@
+.registration {
+   min-height: 100vh;
+   background: var(--main-blue);
+   display: flex;
+   align-items: center;
+   padding: 6rem calc(50vw - 575px);
+   position: relative;
+}
+
+.registration .lang-picker {
+   outline: none;
+   background: none;
+   border: 1px solid black;
+   padding: .3rem .8rem;
+   border-radius: .5rem;
+   font: inherit;
+   cursor: pointer;
+   font-size: 1.4rem;
+   position: absolute;
+   bottom: 1rem;
+   left: 1rem;
+}
+
+.registration > *:not(.lang-picker) {
+   flex-grow: 1;
+   flex-basis: 0;
+   margin: 0 6rem;
+}
+
+.registration h1 {
+   font-size: 5rem;
+   letter-spacing: .06em;
+   background-image: url(../assets/imgs/encryption.png);
+   background-size: cover;
+   background-position: right 1rem;
+   background-repeat: no-repeat;
+   padding-bottom: 4.2rem;
+   margin: 11rem 0;
+}
+
+.registration h2 {
+   text-transform: uppercase;
+   text-align: center;
+   font-size: 3.5rem;
+   margin-bottom: 2rem;
+}
+
+.registration .left-side {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   position: relative;
+}
+
+.registration .logo {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 8.5rem;
+}
+
+.registration form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.registration form input:not(.input-container input), .registration .input-container {
+   width: 100%;
+   background: var(--sky-blue);
+   border: 2px solid transparent;
+   padding: .5rem 1.5rem;
+   margin: 1rem 0;
+   border-radius: 1rem;
+}
+
+.registration form input:focus {
+   border-color: var(--dark-grey);
+}
+
+.input-container {
+   display: flex;
+}
+
+.input-container input {
+   background: none;
+   flex-grow: 1;
+   padding-right: 1.5rem;
+}
+
+.input-container button {
+   background: none;
+   padding: 0;
+   border-radius: 0;
+   display: flex;
+   align-items: center;
+}
+
+.input-container img {
+   height: 1.4em;
+}
+
+.buttons-container {
+   display: flex;
+   flex-direction: column;
+   align-self: center;
+   margin-top: 2rem !important;
+}
+
+.separation {
+   text-align: center;
+   font-size: .85em;
+   position: relative;
+   z-index: 1;
+}
+
+.separation::before {
+   content: "";
+   background: white;
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+   display: inline-block;
+   width: 100%;
+   height: 2px;
+   z-index: -1;
+}
+
+.separation span {
+   background: var(--main-blue);
+   display: inline-block;
+   padding: .8em;
+}
+
+.error {
+   color: var(--danger);
+   font-size: .85em;
+   margin: 0 !important;
+   overflow: hidden;
+   transition: height .2s;
+}
+
+@media screen and (max-width: 880px) {
+   .registration {
+      flex-direction: column;
+   }
+   .registration > *:not(.lang-picker) {
+      width: calc(100% - 12rem);
+      max-width: 500px;
+      flex-grow: 0;
+   }
+   .registration .left-side {
+      justify-content: center;
+      margin-bottom: 3.5rem;
+   }
+   .registration .logo {
+      position: static;
+      height: 6.5rem;
+      margin: 0 4rem 4.2rem 0;
+   }
+   .registration h1 {
+      font-size: 3.3rem;
+      margin: 0;
+   }
+   .registration form {
+      justify-content: flex-start;
+   }
+}
+
+@media screen and (max-width: 425px) {
+   .registration > *:not(.lang-picker) {
+      width: calc(100% - 6rem);
+      margin: 0 3rem;
+   }
+   .registration .logo {
+      height: 5.2rem;
+      margin-right: 3rem;
+   }
+   .registration h1 {
+      font-size: 2.5rem;
+   }
+}
