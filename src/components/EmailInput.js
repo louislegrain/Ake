@@ -5,7 +5,7 @@ import { languageContext } from '../contexts/languages/language';
 
 export function EmailInput({ setErrFunc, ...args }) {
    let { language: txt } = useContext(languageContext);
-   txt = txt.registration.rightSide.errors;
+   txt = txt.registration.errors;
 
    const emailCheck = (val, name) => {
       setErrFunc(err => ({

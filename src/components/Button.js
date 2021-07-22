@@ -1,3 +1,7 @@
-export function Button({ children, ...args }) {
-   return <button {...args}>{children}</button>;
+export function Button({ primary, children, ...args }) {
+   return (
+      <button className={primary ? 'btn-primary' : ''} {...args}>
+         {children}
+      </button>
+   );
 }

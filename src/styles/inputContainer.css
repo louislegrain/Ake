@@ -1,0 +1,18 @@
+.input-container .flex {
+   align-items: flex-end;
+   padding-bottom: .5rem;
+}
+
+.input-container .flex label {
+   color: var(--nickel);
+}
+
+.input-container .flex p {
+   color: var(--moon);
+   font-size: .8em;
+   margin-left: auto;
+}
+
+.input-container .flex p::before {
+   content: "*";
+}

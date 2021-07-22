@@ -5,7 +5,7 @@ import { languageContext } from '../contexts/languages/language';
 
 export function PasswordInputWithVerifs({ setErrFunc, ...args }) {
    let { language: txt } = useContext(languageContext);
-   txt = txt.registration.rightSide.errors;
+   txt = txt.registration.errors;
 
    const passwordCheck = (val, name) => {
       const verifs = {

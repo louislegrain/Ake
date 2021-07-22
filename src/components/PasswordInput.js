@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
+import { languageContext } from '../contexts/languages/language';
 
 import visibleIcon from '../assets/icons/visible.svg';
 import hiddenIcon from '../assets/icons/hidden.svg';
-
-import { languageContext } from '../contexts/languages/language';
+import '../styles/passwordContainer.css';
 
 export function PasswordInput({
    name,
+   label,
+   helper,
    value = '',
    setValue,
    checkFunc = () => null,
@@ -14,7 +16,7 @@ export function PasswordInput({
    ...args
 }) {
    let { language: txt } = useContext(languageContext);
-   txt = txt.registration.rightSide;
+   txt = txt.registration;
 
    const [visible, setVisible] = useState(false);
    const [displayErr, setDisplayErr] = useState(false);
@@ -30,22 +32,29 @@ export function PasswordInput({
 
    return (
       <>
-         <div className="input-container">
-            <input
-               type={visible ? 'text' : 'password'}
-               autoComplete="off"
-               name={name}
-               onChange={handleChange}
-               value={value}
-               required
-               {...args}
-            />
-            <button type="button" onClick={() => setVisible(v => !v)}>
-               <img
-                  src={visible ? visibleIcon : hiddenIcon}
-                  alt={visible ? txt.eyeIcon.visible : txt.eyeIcon.hidden}
+         <div className="container input-container">
+            <div className="flex">
+               {label && <label htmlFor={name}>{label}</label>}
+               {helper && <p>{helper}</p>}
+            </div>
+            <div className="container password-container">
+               <input
+                  type={visible ? 'text' : 'password'}
+                  autoComplete="off"
+                  name={name}
+                  id={name}
+                  onChange={handleChange}
+                  value={value}
+                  required
+                  {...args}
                />
-            </button>
+               <button type="button" onClick={() => setVisible(v => !v)}>
+                  <img
+                     src={visible ? visibleIcon : hiddenIcon}
+                     alt={visible ? txt.eyeIcon.visible : txt.eyeIcon.hidden}
+                  />
+               </button>
+            </div>
          </div>
          <p className="error" style={{ height: displayErr && errMsg ? '1.5rem' : '0' }}>
             {errMsg}

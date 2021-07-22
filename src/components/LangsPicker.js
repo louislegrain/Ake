@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import { languageContext } from '../contexts/languages/language';
 
 export function LangsPicker() {

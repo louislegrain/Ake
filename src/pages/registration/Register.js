@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import { LeftSide } from './LeftSide';
 import {
    Button,
    EmailInput,
@@ -8,13 +7,15 @@ import {
    PasswordInput,
    PasswordInputWithVerifs,
 } from '../../components';
-import { Link } from 'react-router-dom';
-
+import { updateErrors, minLength } from '../../functions/verifs';
 import { languageContext } from '../../contexts/languages/language';
+
+import outlinedLogo from '../../assets/imgs/outlined_logo.svg';
+import '../../styles/registration.css';
 
 export function Register() {
    let { language: txt } = useContext(languageContext);
-   txt = txt.registration.rightSide;
+   txt = txt.registration;
 
    const [values, setValues] = useState({});
    const [errors, setErrors] = useState({});
@@ -29,30 +30,29 @@ export function Register() {
    };
 
    const nameCheck = (val, name) =>
-      setErrors(err => ({
-         ...err,
-         [name]: val.length > 2 ? null : txt.errors.fullname,
-      }));
+      updateErrors(setErrors, name, minLength(val, 3, txt.errors.fullname));
 
-   useEffect(() => {
-      setErrors(err => ({
-         ...err,
-         retypePassword:
-            values.password === values.retypePassword ? null : txt.errors.retypePassword,
-      }));
-   }, [values.password, values.retypePassword]);
+   useEffect(
+      () =>
+         updateErrors(
+            setErrors,
+            'retypePassword',
+            values.password === values.retypePassword ? null : txt.errors.retypePassword
+         ),
+      [values.password, values.retypePassword, txt.errors.retypePassword]
+   );
 
    return (
       <div className="registration">
          <LangsPicker />
-         <LeftSide />
          <form onSubmit={handleSubmit}>
-            <h2>{txt.register}</h2>
+            <img src={outlinedLogo} alt={txt.logoAlt} className="logo" />
+            <h1>{txt.titles.register}</h1>
             <Input
                checkFunc={nameCheck}
                errMsg={errors.fullname}
                name="fullname"
-               placeholder={txt.placeholders.fullname}
+               label={txt.labels.fullname}
                value={values.fullname}
                setValue={setNewValue}
             />
@@ -60,7 +60,7 @@ export function Register() {
                setErrFunc={setErrors}
                errMsg={errors.email}
                name="email"
-               placeholder={txt.placeholders.email}
+               label={txt.labels.email}
                value={values.email}
                setValue={setNewValue}
             />
@@ -68,25 +68,23 @@ export function Register() {
                setErrFunc={setErrors}
                errMsg={errors.password}
                name="password"
-               placeholder={txt.placeholders.password}
+               label={txt.labels.password}
+               helper={txt.helpers.strongPassword}
                value={values.password}
                setValue={setNewValue}
             />
             <PasswordInput
                errMsg={errors.retypePassword}
                name="retypePassword"
-               placeholder={txt.placeholders.retypePassword}
+               label={txt.labels.retypePassword}
                value={values.retypePassword}
                setValue={setNewValue}
             />
-            <div className="buttons-container">
-               <Button disabled={!canSubmit()}>{txt.register}</Button>
-               <p className="separation">
-                  <span>{txt.or}</span>
-               </p>
-               <Link to="/login/" className="a-btn">
-                  {txt.login}
-               </Link>
+            <div className="form-footer">
+               <Button primary disabled={!canSubmit()}>
+                  {txt.register}
+               </Button>
+               <p>{txt.termsOfUse}</p>
             </div>
          </form>
       </div>

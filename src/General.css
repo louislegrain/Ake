@@ -1,0 +1,55 @@
+a {
+   color: var(--electric-blue);
+}
+
+input, button {
+   border: none;
+   font: inherit;
+}
+
+input {
+   outline: none;
+   min-width: 0;
+   color: inherit;
+}
+
+select {
+   outline: none;
+}
+
+select:focus-visible {
+   border-color: var(--electric-blue) !important;
+}
+
+button {
+   background: none;
+}
+
+.btn-primary {
+   background: var(--electric-blue);
+   color: white;
+      padding: .7em 1.5em;
+   border-radius: .8rem;
+   transition: opacity .3s;
+}
+
+button:disabled {
+   opacity: .5;
+}
+
+button:not(:disabled) {
+   cursor: pointer;
+}
+
+input[type="password"]::-ms-reveal {
+   display: none;
+}
+
+.flex {
+   display: flex;
+}
+
+strong {
+   font-weight: inherit;
+   color: var(--electric-blue);
+}
