@@ -1,0 +1,33 @@
+.info-banner {
+   background: var(--moon);
+   color: white;
+   font-weight: bold;
+   text-align: center;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   padding: 1rem 0;
+   z-index: 1000;
+   transition: transform .3s;
+}
+
+.info-banner.error {
+   background: var(--danger);
+}
+.info-banner.success {
+   background: var(--success);
+}
+
+.info-banner button {
+   font-size: 0;
+   position: absolute;
+   top: 50%;
+   right: 1rem;
+   transform: translateY(-50%);
+}
+
+.info-banner button img {
+   width: 1.5rem;
+   height: 1.5rem;
+}

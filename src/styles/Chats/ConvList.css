@@ -1,0 +1,74 @@
+.conv-list {
+   font-size: .84em;
+   width: 32rem;
+   flex-shrink: 0;
+   display: flex;
+   flex-direction: column;
+   background: var(--background);
+}
+
+.conv-list .actions {
+   padding: 1rem;
+   display: flex;
+   align-items: center;
+   border-bottom: 1px solid var(--light-grey);
+}
+
+.dark .conv-list .actions {
+   border-bottom-color: var(--nickel);
+}
+
+.conv-list .actions .profile-picture {
+  height: 3.8rem;
+  width: 3.8rem;
+}
+
+.conv-list .list {
+   overflow-y: auto;
+}
+
+.conv-list a {
+   text-decoration: none;
+   color: inherit;
+   display: flex;
+   align-items: flex-start;
+   padding: 1rem;
+   position: relative;
+}
+
+.conv-list a:hover, .conv-list a.active {
+   background: var(--light-grey);
+}
+
+.dark .conv-list a:hover, .dark .conv-list a.active {
+   background: var(--extra-dark-night-blue);
+}
+
+.conv-list a .content {
+   flex-grow: 1;
+   padding: .5rem 1rem;
+}
+
+.conv-list a .content .name {
+   font-size: 1.16em;
+   font-weight: bold;
+}
+
+.conv-list a .content .message, .conv-list a .date {
+   color: var(--nickel);
+}
+
+.conv-list a .content .message {
+   display: flex;
+   align-items: center;
+}
+
+.conv-list a .content .message svg {
+   margin-left: 0;
+}
+
+.conv-list a .date {
+   position: absolute;
+   top: 5px;
+   right: 10px;
+}

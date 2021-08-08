@@ -16,16 +16,20 @@ const fr = {
          ),
       },
       labels: {
-         fullname: 'Nom complet',
+         username: 'Pseudo',
          email: 'Adresse mail',
          password: 'Mot de passe',
          retypePassword: 'Confirmer le mot de passe',
+         description: 'Description',
+         stcp: 'Question de sécurité',
+         darkMode: 'Thème sombre',
       },
       helpers: {
          strongPassword: 'Assurez-vous que votre mot de passe soit fort',
+         optional: 'Optionnel',
       },
       errors: {
-         fullname: 'Veuillez entrer votre nom complet.',
+         username: 'Le pseudo doit contenir au moins 3 caractères.',
          email: 'Veuillez respecter le format requis.',
          passwordMin8Caracts: 'Le mot de passe doit contenir au moins 8 caractères.',
          passwordMin1Number: 'Le mot de passe doit contenir au moins 1 chiffre.',
@@ -35,47 +39,86 @@ const fr = {
             'Le mot de passe doit contenir au moins 1 caractère spécial.',
          retypePassword: 'Les mots de passe ne correspondent pas.',
          emptyField: 'Veuillez compléter ce champ.',
+         stcp: 'La question de sécurité doit contenir au moins 3 caractères.',
       },
       register: 'Inscription',
       login: 'Connexion',
-      eyeIcon: {
-         visible: 'Œil visible',
-         hidden: 'Œil caché',
-      },
       termsOfUse: (
          <>
-            En cliquant sur <span className="italic">Inscription</span>, vous acceptez nos{' '}
-            <a
-               href="#"
-               onClick={e => {
-                  e.preventDefault();
-                  alert('En cliquant sur ce lien on devra atterir sur la page des conditions');
-               }}
-            >
-               Conditions d'utilisation
-            </a>
-            .<br />
             Vous avez déjà un compte ? <Link to="/login/">Connexion</Link>.
          </>
       ),
       loginFooter: (
          <>
-            Mot de passe oublié ? Pas d'inquiétude,{' '}
-            <a
-               href="#"
-               onClick={e => {
-                  e.preventDefault();
-                  alert(
-                     'En cliquant sur ce lien on devra atterir sur la page de changement de mot de passe'
-                  );
-               }}
-            >
-               cliquez ici
-            </a>
-            .<br />
             Vous n'avez pas de compte ? <Link to="/register/">Inscription</Link>.
          </>
       ),
+   },
+   chats: {
+      writeMsg: 'Taper un message',
+      errors: {
+         titles: {
+            emptyChats: 'Aucune discussion',
+            noSelectedChat: 'Pas de discussion sélectionnée',
+            notFoundChat: "Cette discussion n'existe pas",
+         },
+         errors: {
+            emptyChats: 'Ajoutez des amis pour démarrer une nouvelle discussion.',
+            noSelectedChat: 'Veuillez sélectionner une discussion.',
+            notFoundChat: 'Veuillez en sélectionner une autre.',
+         },
+      },
+   },
+   time: {
+      now: 'maintenant',
+      min: 'min',
+      hour: 'h',
+      day: 'j',
+      month: 'm',
+      year: {
+         sing: 'an',
+         plur: 'ans',
+      },
+   },
+   date: {
+      today: "Aujourd'hui",
+      yesterday: 'Hier',
+      days: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+      months: [
+         'janvier',
+         'février',
+         'mars',
+         'avril',
+         'mai',
+         'juin',
+         'juillet',
+         'août',
+         'septembre',
+         'octobre',
+         'novembre',
+         'décembre',
+      ],
+   },
+   modals: {
+      account: {
+         account: 'Compte',
+      },
+   },
+   icons: {
+      eye: {
+         visible: 'Œil visible',
+         hidden: 'Œil caché',
+      },
+      cross: 'Croix',
+      paperplane: 'Avion en papier',
+      profilePicture: 'Photo de profil',
+   },
+   statusErrors: {
+      400: "Un champ demandé n'est pas fourni",
+      401: 'Identifiant / mot de passe invalide',
+      409: 'Cette adresse mail est déjà utilisée',
+      412: "Le mot de passe n'est pas assez sécurisé",
+      default: 'Une erreur est survenue',
    },
 };
 

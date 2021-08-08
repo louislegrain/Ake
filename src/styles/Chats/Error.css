@@ -1,0 +1,25 @@
+.doesnt-exist-container {
+   width: 80%;
+   max-width: 70rem;
+   padding-bottom: 40%;
+   padding-bottom: clamp(0px, 40%, min(33rem, 75vh));
+   font-size: clamp(1rem, 1.3vw, 1.6rem);
+   margin: auto;
+   background-image: url(../../assets/imgs/doesnt_exist.svg);
+   background-size: contain;
+   background-position: bottom right;
+   background-repeat: no-repeat;
+   position: relative;
+}
+
+.doesnt-exist-container > div {
+   position: absolute;
+   top: 60%;
+   right: calc((100vw - 32rem) * 0.22);
+}
+
+.doesnt-exist-container .title {
+   color: var(--electric-blue);
+   font-size: 2.1em;
+   margin-bottom: .5rem;
+}

@@ -1,0 +1,12 @@
+.chat {
+   display: flex;
+}
+
+.dark .chat {
+   --background: var(--dark-night-blue);
+}
+
+.chat > * {
+   height: 100vh;
+   overflow-y: hidden;
+}

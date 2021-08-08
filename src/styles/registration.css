@@ -4,6 +4,10 @@
    padding: 5rem 3.5rem;
 }
 
+.dark form {
+   --nickel: white;
+}
+
 .registration .lang-picker {
    background: none;
    border: 1px solid black;
@@ -28,37 +32,6 @@
 
 form .logo {
    height: 7rem;
-}
-
-.error {
-   color: var(--danger);
-   font-size: .85em;
-   font-weight: bold;
-   overflow: hidden;
-   transition: height .2s;
-}
-
-form input:not(.password-container input), form .password-container {
-   width: 100%;
-   background: white;
-   border: 2px solid var(--moon);
-   padding: .5rem 1.5rem;
-}
-
-.dark form input:not(.password-container input), .dark form .password-container {
-   background: var(--dark-night-blue);
-}
-
-form input:not(.container input), form .container:not(.container .container) {
-   margin: 1rem 0;
-}
-
-form input:not(.password-container input):focus, form .password-container:focus-within {
-   border-color: var(--electric-blue);
-}
-
-form input:focus {
-   border-color: var(--electric-blue);
 }
 
 .registration .form-footer {

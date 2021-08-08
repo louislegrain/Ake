@@ -1,0 +1,11 @@
+textarea {
+   resize: none;
+   font: inherit;
+   border: none;
+   outline: none;
+   background: none;
+}
+
+textarea::-webkit-scrollbar {
+   display: none;
+}

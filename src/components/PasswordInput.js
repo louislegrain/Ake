@@ -3,6 +3,7 @@ import { languageContext } from '../contexts/languages/language';
 
 import visibleIcon from '../assets/icons/visible.svg';
 import hiddenIcon from '../assets/icons/hidden.svg';
+import '../styles/Input.css';
 import '../styles/passwordContainer.css';
 
 export function PasswordInput({
@@ -15,20 +16,20 @@ export function PasswordInput({
    errMsg,
    ...args
 }) {
-   let { language: txt } = useContext(languageContext);
-   txt = txt.registration;
+   const txt = useContext(languageContext).language.icons;
 
    const [visible, setVisible] = useState(false);
    const [displayErr, setDisplayErr] = useState(false);
 
    const handleChange = e => {
       setDisplayErr(true);
-      let val = e.target.value;
-      setValue(val, name);
-      checkFunc(val, name);
+      const val = e.target.value;
+      setValue(name, val);
+      checkFunc(name, val);
    };
 
-   useEffect(() => checkFunc(value, name), []);
+   // eslint-disable-next-line
+   useEffect(() => checkFunc(name, value), [label]);
 
    return (
       <>
@@ -39,6 +40,7 @@ export function PasswordInput({
             </div>
             <div className="container password-container">
                <input
+                  className="input"
                   type={visible ? 'text' : 'password'}
                   autoComplete="off"
                   name={name}
@@ -51,7 +53,7 @@ export function PasswordInput({
                <button type="button" onClick={() => setVisible(v => !v)}>
                   <img
                      src={visible ? visibleIcon : hiddenIcon}
-                     alt={visible ? txt.eyeIcon.visible : txt.eyeIcon.hidden}
+                     alt={visible ? txt.eye.visible : txt.eye.hidden}
                   />
                </button>
             </div>

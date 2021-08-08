@@ -1,0 +1,10 @@
+.menu-btn {
+   font-size: 0;
+   color: var(--nickel);
+   transition: transform .1s ease-in-out;
+}
+
+.menu-btn svg {
+   height: 3.5rem;
+   width: 3.5rem;
+}

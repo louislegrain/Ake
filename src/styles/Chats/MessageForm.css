@@ -1,0 +1,31 @@
+.message-form {
+   display: flex;
+   align-items: flex-start;
+}
+
+.message-form > * {
+   margin: 1rem !important;
+   max-width: none !important;
+   align-self: auto !important;
+}
+
+.message-form > div.message-bubble {
+   flex-grow: 1;
+   display: flex;
+}
+
+.message-form textarea {
+   flex-grow: 1;
+   max-height: 30vh;
+}
+
+.message-form button {
+   font-size: 0;
+   position: sticky;
+   top: 1rem;
+   padding: 1rem 3rem !important;
+}
+
+.message-form button img {
+   height: 1.9rem;
+}

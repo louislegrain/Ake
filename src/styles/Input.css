@@ -1,0 +1,30 @@
+p.error {
+   color: var(--danger);
+   font-size: .85em;
+   font-weight: bold;
+   overflow: hidden;
+   transition: height .2s;
+}
+
+.input:not(.password-container .input), .password-container {
+   width: 100%;
+   background: var(--snow);
+   border: 2px solid var(--moon);
+   padding: .5rem 1.5rem;
+}
+
+.dark .input:not(.password-container .input), .dark .password-container {
+   background: var(--dark-night-blue);
+}
+
+.input:not(.container .input), .container:not(.container .container) {
+   margin: 1rem 0;
+}
+
+.input:not(.password-container .input):focus, .password-container:focus-within {
+   border-color: var(--electric-blue);
+}
+
+.input:focus {
+   border-color: var(--electric-blue);
+}

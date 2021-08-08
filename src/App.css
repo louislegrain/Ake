@@ -1,15 +1,21 @@
 :root {
    --night-blue: #1F1B4E;
    --dark-night-blue: #18153A;
+   --extra-dark-night-blue: #1C1B26;
    --electric-blue: #3420FF;
+   --success: #0EAD69;
    --danger: #E74C3C;
    --nickel: #666666;
    --moon: #999999;
+   --light-grey: #DCDCDC;
+   --snow: #F1F1F1;
+   --background: var(--snow);
 }
 
 .dark {
    color: white;
-   --nickel: white;
+   --nickel: var(--moon);
+   --background: var(--night-blue);
 }
 
 *, ::before, ::after {
@@ -30,8 +36,5 @@ body {
 #root {
    min-height: 100vh;
    position: relative;
-}
-
-.dark #root {
-   background: var(--night-blue);
+   background: var(--background);
 }

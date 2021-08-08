@@ -1,0 +1,26 @@
+.message-bubble {
+   white-space: pre-wrap;
+   background: var(--light-grey);
+   margin: .5rem 0;
+   padding: 1rem 2rem;
+   border-radius: 3rem;
+   max-width: 70%;
+   overflow: hidden;
+}
+
+.message-bubble.self {
+   align-self: flex-end;
+   background: var(--electric-blue);
+   color: white;
+}
+
+.message-bubble + .date {
+   color: var(--nickel);
+   margin: .1rem 0 .4rem;
+   display: flex;
+   align-items: center;
+}
+
+.message-bubble + .date svg {
+   margin-right: 0;
+}

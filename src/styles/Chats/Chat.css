@@ -1,0 +1,16 @@
+.dark .conv {
+   background: var(--night-blue);
+   --light-grey: var(--extra-dark-night-blue);
+}
+
+.conv {
+   flex-grow: 1;
+   background: white;
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+
+.conv .self {
+   align-self: flex-end;
+}

@@ -53,3 +53,53 @@ strong {
    font-weight: inherit;
    color: var(--electric-blue);
 }
+
+.one-line {
+   -webkit-line-clamp: 1;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   word-break: break-all;
+}
+
+.icon {
+   height: .8em;
+   flex-shrink: 0;
+   margin: 0 .3em;
+}
+
+.label {
+   color: var(--nickel);
+   margin: 1rem 0;
+}
+
+.dark .label {
+   --nickel: white;
+}
+
+::-webkit-scrollbar {
+   width: 5px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--light-grey);
+}
+
+.dark::-webkit-scrollbar-track, .dark ::-webkit-scrollbar-track {
+   background: var(--extra-dark-night-blue);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--moon);
+   border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: var(--nickel);
+}
+
+/* -- Firefox scrollbar -- */
+*, ::before, ::after {
+   scrollbar-width: thin;
+   scrollbar-color: var(--moon) var(--background);
+}

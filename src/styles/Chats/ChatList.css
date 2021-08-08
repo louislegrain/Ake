@@ -1,0 +1,22 @@
+.conv .chats-list {
+   flex-grow: 1;
+   overflow-y: auto;
+   padding: 1.5rem 3rem;
+}
+
+.chats-list > div {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.chats-list > div:nth-child(1) {
+   margin-top: -4rem;
+}
+
+.chats-list .msg-day {
+   align-self: center;
+   position: sticky;
+   top: 0;
+   transition: opacity .3s;
+}

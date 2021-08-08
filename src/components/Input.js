@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import '../styles/Input.css';
 import '../styles/inputContainer.css';
 
 export function Input({
@@ -17,15 +18,17 @@ export function Input({
    const handleChange = e => {
       setDisplayErr(true);
       const val = e.target.value;
-      setValue(val, name);
-      checkFunc(val, name);
+      setValue(name, val);
+      checkFunc(name, val);
    };
 
    // Without label err msg trad isn't updating
-   useEffect(() => checkFunc(value, name), [label]);
+   // eslint-disable-next-line
+   useEffect(() => checkFunc(name, value), [label]);
 
    const input = (
       <input
+         className="input"
          type="text"
          autoComplete="off"
          name={name}

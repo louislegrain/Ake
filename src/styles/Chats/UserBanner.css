@@ -1,0 +1,23 @@
+.user-banner {
+   background: var(--background);
+   display: flex;
+   align-items: center;
+   padding: .5rem;
+}
+
+.user-banner > * {
+   margin: 0 .5rem;
+}
+
+.user-banner .infos {
+   flex-grow: 1;
+}
+
+.user-banner .username {
+   font-weight: bold;
+}
+
+.user-banner .description {
+   color: var(--nickel);
+   font-size: .8em;
+}

@@ -4,10 +4,9 @@ import { PasswordInput } from './PasswordInput';
 import { languageContext } from '../contexts/languages/language';
 
 export function PasswordInputWithVerifs({ setErrFunc, ...args }) {
-   let { language: txt } = useContext(languageContext);
-   txt = txt.registration.errors;
+   const txt = useContext(languageContext).language.registration.errors;
 
-   const passwordCheck = (val, name) => {
+   const passwordCheck = (name, val) => {
       const verifs = {
          '^.{8,}$': txt.passwordMin8Caracts,
          '[0-9]': txt.passwordMin1Number,
@@ -17,13 +16,10 @@ export function PasswordInputWithVerifs({ setErrFunc, ...args }) {
       };
       Object.entries(verifs).every(([key, value]) => {
          if (!val.match(new RegExp(key))) {
-            setErrFunc(err => ({
-               ...err,
-               [name]: value,
-            }));
+            setErrFunc(name, value);
             return false;
          }
-         setErrFunc(err => ({ ...err, [name]: null }));
+         setErrFunc(name, null);
          return true;
       });
    };

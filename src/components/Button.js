@@ -1,6 +1,6 @@
-export function Button({ primary, children, ...args }) {
+export function Button({ primary, children, action = null, ...args }) {
    return (
-      <button className={primary ? 'btn-primary' : ''} {...args}>
+      <button className={primary ? 'btn-primary' : ''} onClick={action} {...args}>
          {children}
       </button>
    );

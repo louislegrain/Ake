@@ -1,0 +1,49 @@
+.modal {
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background: rgba(0, 0, 0, .5);
+   overflow-y: auto;
+   animation: opacity-appear .3s;
+}
+
+.modal > div {
+   background: var(--background);
+   width: 100%;
+   max-width: 80rem;
+   margin: 8rem auto;
+   padding: 2rem 4rem;
+   animation: translation-appear .4s;
+}
+
+.modal .head {
+   display: flex;
+   align-items: center;
+   padding: 1rem 0;
+   margin-bottom: 2rem;
+   border-bottom: 1px solid var(--moon);
+}
+
+.modal .head .title {
+   font-size: 4rem;
+   flex-grow: 1;
+}
+
+@keyframes opacity-appear {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+@keyframes translation-appear {
+   from {
+      transform: translateY(5rem);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
