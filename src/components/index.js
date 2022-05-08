@@ -10,3 +10,4 @@ export * from './Modal';
 export * from './InfoBanner';
 export * from './Textarea';
 export * from './DarkModeToggle';
+export * from './SearchBar';

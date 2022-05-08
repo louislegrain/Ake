@@ -1,0 +1,19 @@
+/* Priority */
+body .searchbar-container {
+   cursor: text;
+   padding: .5em;
+   margin: 0;
+   max-width: none;
+   display: flex;
+   align-items: center;
+}
+
+.searchbar-container img {
+   height: 1.1em;
+}
+
+.searchbar-container input {
+   background: none;
+   flex-grow: 1;
+   padding: 0 .5em;
+}

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userContext } from '../../contexts/user/user';
 import { useServerReq } from '../../functions/hooks';
-import { TimeFromNow, MenuBtn } from '..';
+import { TimeFromNow, MenuBtn, SearchBar } from '../';
 import { AccountModal, ProfilePicture } from './';
 import { MsgStatus } from '../svg/MsgStatus';
 
@@ -18,7 +18,9 @@ export function ConvList() {
    useEffect(() => {
       const controller = new AbortController();
       (async () => {
-         const data = await serverReq('/conversations', { signal: controller.signal });
+         const data = await serverReq('/conversations/get?offset=0', {
+            signal: controller.signal,
+         });
          if (data.ok) dispatch({ type: 'set_chats', payload: data.data.data });
       })();
 
@@ -29,6 +31,7 @@ export function ConvList() {
       <div className="conv-list">
          <div className="actions">
             <ProfilePicture />
+            <SearchBar placeholder="Rechercher des discussions" />
             <MenuBtn>
                <AccountModal />
             </MenuBtn>

@@ -18,10 +18,9 @@ const fr = {
       labels: {
          username: 'Pseudo',
          email: 'Adresse mail',
+         description: 'Description',
          password: 'Mot de passe',
          retypePassword: 'Confirmer le mot de passe',
-         description: 'Description',
-         stcp: 'Question de sécurité',
          darkMode: 'Thème sombre',
       },
       helpers: {
@@ -31,6 +30,7 @@ const fr = {
       errors: {
          username: 'Le pseudo doit contenir au moins 3 caractères.',
          email: 'Veuillez respecter le format requis.',
+         description: 'La description doit contenir au moins 1 caractère.',
          passwordMin8Caracts: 'Le mot de passe doit contenir au moins 8 caractères.',
          passwordMin1Number: 'Le mot de passe doit contenir au moins 1 chiffre.',
          passwordMin1MajLetter: 'Le mot de passe doit contenir au moins 1 lettre majuscule.',
@@ -39,7 +39,6 @@ const fr = {
             'Le mot de passe doit contenir au moins 1 caractère spécial.',
          retypePassword: 'Les mots de passe ne correspondent pas.',
          emptyField: 'Veuillez compléter ce champ.',
-         stcp: 'La question de sécurité doit contenir au moins 3 caractères.',
       },
       register: 'Inscription',
       login: 'Connexion',

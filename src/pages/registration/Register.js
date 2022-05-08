@@ -28,7 +28,7 @@ export function Register() {
    const history = useHistory();
    const serverReq = useServerReq();
    const getError = useGetError();
-   const { user } = useContext(userContext);
+   const { user, setUser } = useContext(userContext);
 
    const canSubmit = () => Object.values(errors).filter(err => err !== null).length === 0;
 
@@ -47,7 +47,8 @@ export function Register() {
          });
          setTimeout(() => {
             if (data.ok) {
-               history.push('/register/finish/');
+               setUser({ logged: true, id: null });
+               history.push('/chats');
             } else {
                setReqErr(err => ({
                   msg: getError(data.res.status),
@@ -65,6 +66,8 @@ export function Register() {
    }, []);
 
    const nameCheck = (name, val) => setErrors(name, minLength(val, 3, txt.errors.username));
+   const descriptionCheck = (name, val) =>
+      setErrors(name, minLength(val, 1, txt.errors.description));
 
    useEffect(() => {
       setErrors(
@@ -95,6 +98,14 @@ export function Register() {
                name="email"
                label={txt.labels.email}
                value={values.email}
+               setValue={setValues}
+            />
+            <Input
+               checkFunc={descriptionCheck}
+               errMsg={errors.description}
+               name="description"
+               label={txt.labels.description}
+               value={values.description}
                setValue={setValues}
             />
             <PasswordInputWithVerifs

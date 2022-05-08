@@ -27,7 +27,7 @@ export function UserContext({ children }) {
          !(user.id && userInfos.email && userInfos.username && userInfos.description)
       ) {
          (async () => {
-            const data = await serverReq('/user/account');
+            const data = await serverReq('/user/account/informations');
             if (data.ok) {
                const { id, username, email, description } = data.data.data;
                setUser({ logged: true, id });

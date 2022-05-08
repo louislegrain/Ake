@@ -1,7 +1,7 @@
 import { useCallback, useContext } from 'react';
 import { languageContext } from '../../contexts/languages/language';
 import { userContext } from '../../contexts/user/user';
-import { api_url } from '../../variables';
+import { api_url } from '../../config';
 
 export function useServerReq(user) {
    const userCtx = useContext(userContext);

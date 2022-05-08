@@ -14,6 +14,10 @@
    border-bottom: 1px solid var(--light-grey);
 }
 
+.conv-list .actions > *:not(:last-child) {
+   margin-right: .8rem;
+}
+
 .dark .conv-list .actions {
    border-bottom-color: var(--nickel);
 }
@@ -21,6 +25,10 @@
 .conv-list .actions .profile-picture {
   height: 3.8rem;
   width: 3.8rem;
+}
+
+.conv-list .actions .searchbar-container {
+  flex-grow: 1;
 }
 
 .conv-list .list {

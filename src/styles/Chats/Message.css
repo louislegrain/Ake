@@ -8,6 +8,10 @@
    overflow: hidden;
 }
 
+.dark .message-bubble {
+   background: var(--extra-dark-night-blue);
+}
+
 .message-bubble.self {
    align-self: flex-end;
    background: var(--electric-blue);

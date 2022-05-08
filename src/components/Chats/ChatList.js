@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Message } from './';
 import { usePrettyDate, useServerReq } from '../../functions/hooks';
 import { sameDay } from '../../functions/sameDay';
+import { socketContext } from '../../contexts/sockets/socket';
 
 import '../../styles/Chats/ChatList.css';
 
@@ -17,6 +18,7 @@ export function ChatList() {
    const id = useParams().id * 1;
    const conv = useSelector(state => state.convs[id]);
    const dispatch = useDispatch();
+   const { socket } = useContext(socketContext);
 
    const scrollDown = () =>
       chatsContainer.current &&
@@ -30,14 +32,18 @@ export function ChatList() {
 
    useEffect(() => () => clearTimeout(timeoutId), [timeoutId]);
 
-   useEffect(scrollDown, [conv, id]);
+   useEffect(() => {
+      scrollDown();
+      chatsContainerScroll();
+      // eslint-disable-next-line
+   }, [conv, id]);
 
    useEffect(() => {
       if (conv || !id) return;
 
       const controller = new AbortController();
       (async () => {
-         const data = await serverReq(`/messages/get?conv_id=${id}`, {
+         const data = await serverReq(`/message/get?conv_id=${id}&offset=0`, {
             signal: controller.signal,
          });
          if (data.ok)
@@ -54,6 +60,23 @@ export function ChatList() {
 
       return () => controller.abort();
    }, [id, conv, dispatch, serverReq]);
+
+   useEffect(() => {
+      socket?.on('message', payload => {
+         dispatch({
+            type: 'new_msg',
+            payload: {
+               id,
+               state: {
+                  author: payload.from,
+                  content: payload.content,
+                  created_at: payload.date,
+                  id: new Date().getTime(),
+               },
+            },
+         });
+      });
+   }, [socket]);
 
    useMemo(() => {
       if (!conv) return;

@@ -5,6 +5,7 @@ import { languageContext } from '../../contexts/languages/language';
 import { userContext } from '../../contexts/user/user';
 import { useGetError, useServerReq } from '../../functions/hooks';
 import { Button, Textarea } from '../';
+import { socketContext } from '../../contexts/sockets/socket';
 
 import paperplaneIcon from '../../assets/icons/paperplane.svg';
 import '../../styles/Chats/MessageForm.css';
@@ -20,6 +21,10 @@ export function MessageForm({ setReqErr }) {
    const id = useParams().id * 1;
    const dispatch = useDispatch();
    const convs = useSelector(state => state.convs);
+   const chats = useSelector(state => state.chats);
+   const { socket } = useContext(socketContext);
+
+   const curChat = chats.find(chat => chat.id === id + '');
 
    const handleChange = e => setMessage(e.target.value);
 
@@ -33,6 +38,10 @@ export function MessageForm({ setReqErr }) {
       setMessage('');
       const formdata = new FormData(form.current);
       formdata.append('conv_id', id);
+      socket.emit('message', {
+         content: formdata.get('content'),
+         to: curChat.participants[0].user_id,
+      });
       const data = await serverReq('/message/send', {
          method: 'POST',
          body: formdata,
